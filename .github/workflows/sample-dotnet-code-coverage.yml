@@ -5,10 +5,14 @@ on:
     branches: ["main"]
     paths:
       - "samples/dotnet-code-coverage/**"
+      - ".github/workflows/dotnet-code-coverage.yml"
+      - ".github/workflows/sample-dotnet-code-coverage.yml"
   pull_request:
     branches: ["main"]
     paths:
       - "samples/dotnet-code-coverage/**"
+      - ".github/workflows/dotnet-code-coverage.yml"
+      - ".github/workflows/sample-dotnet-code-coverage.yml"
 
 jobs:
   build:
