@@ -37,7 +37,8 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: CoverageCoverage
-          path: TestResults/**/coverage.cobertura.xml
+          path: samples/dotnet-code-coverage/TestResults/**/coverage.cobertura.xml
+          if-no-files-found: error
 
   code-coverage:
     uses: gorilla-ai/github-lab/.github/workflows/dotnet-code-coverage.yml@main
