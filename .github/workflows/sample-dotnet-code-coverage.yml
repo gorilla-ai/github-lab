@@ -36,7 +36,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v2
         with:
-          name: CoverageCoverage
+          name: CoverageCobertura
           path: samples/dotnet-code-coverage/TestResults/**/coverage.cobertura.xml
           if-no-files-found: error
 
