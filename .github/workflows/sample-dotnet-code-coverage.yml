@@ -1,0 +1,39 @@
+name: .NET
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "samples/dotnet-code-coverage/**"
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "samples/dotnet-code-coverage/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore
+      - name: Test
+        run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" -r "TestResults"
+      - name: Upload Code Coverage results
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: CoverageCoverage
+          path: TestResults/**/coverage.cobertura.xml
+
+  code-coverage:
+    uses: gorilla-ai/github-lab/workflows/dotnet-code-coverage/dotnet-code-coverage.yml@main
+    needs: build
+    with:
+      artifactNameOfCoverageCobertura: CoverageCobertura
