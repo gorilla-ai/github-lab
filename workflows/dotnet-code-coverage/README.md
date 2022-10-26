@@ -13,6 +13,8 @@
 2. HTML 報告加入 artifact - `CoverageReport`
 3. 作為 PR 健康度依據
 
+請參考[PR](https://github.com/gorilla-ai/github-lab/pull/1)。
+
 ## 使用方式
 
 ```yml
