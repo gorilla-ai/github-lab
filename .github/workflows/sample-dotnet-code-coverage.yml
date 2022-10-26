@@ -33,7 +33,7 @@ jobs:
           path: TestResults/**/coverage.cobertura.xml
 
   code-coverage:
-    uses: gorilla-ai/github-lab/workflows/dotnet-code-coverage/dotnet-code-coverage.yml@main
+    uses: gorilla-ai/github-lab/.github/workflows/dotnet-code-coverage.yml@main
     needs: build
     with:
       artifactNameOfCoverageCobertura: CoverageCobertura
